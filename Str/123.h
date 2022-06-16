@@ -37,7 +37,7 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
     
     list<string>::iterator b;
 
-    int cnt = 0, cnt2 = 0;
+    int cnt = 0, cnt2 = 0, cnt3 = 0;
     for (auto k = 1; k < strs.size(); k++)
     {
 
@@ -49,18 +49,19 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
                 cnt = 0;
                 if (strH.size() > 0)
                 {
-                    for (auto i = strH.begin(); i != strH.end(); i++) {
-                        b = (*i).begin();
-                        for (/*int  j = 0;j<strH[i].size(); j++*/auto& c : (*i))
+                    for (auto i = 0; i != strH.size();i++) {
+                        b = strH[i].begin();
+                        for (int  j = 0;j<strH[i].size(); j++/*auto& c : (*i)*/)
                         {
 
-                            if (!Proverka(strs[k], c))
+                            if (!Proverka(strs[k], *b))
                             {
                                 if (cnt == 0)
                                 {
                                    // print(c);
                                     //print(strH);
-                                strH.erase(i);
+                                 strH.erase(strH.begin() + i);
+                                cnt2 = -1;
                               //  print(strH);
                                 if (strH.empty())
                                 {
@@ -73,15 +74,27 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
                                 {
                                   //  print(strH);
                                    // print(c);
-                                    (*i).erase(b,  (* i).end());
+                                    strH[i].erase(b, strH[i].end());
                                   //  print(strH);
                                     break;
                                 }
                                 
 
                             }
-                            cnt++;
-                            b++;
+                            if ((cnt2 == -1) && (strH.size() == 1)&&cnt3!=1)
+                            {
+                                cnt3 = 1;
+                                cnt++;
+                                
+                                b = strH[i].begin();
+                                break;
+                            }
+                            else
+                            {
+                                i++;
+                                cnt++;
+                                b++;
+                            }
 
                         }
                     }
