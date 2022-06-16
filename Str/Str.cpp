@@ -7,7 +7,7 @@
 int main()
 {
     Solution b;
-    vector<string> g { "flower","flow","flight" };
+    vector<string> g { /*"flower","flow","flight"*/"dog","racecar","car" };
     b.longestCommonPrefix(g);
     //std::cout << "Hello World!\n";
 }

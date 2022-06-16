@@ -90,6 +90,8 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
                 else
                 {
                     str = "";
+
+                    cout << "bope";
                     return str;
                 }
 
@@ -136,14 +138,15 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
         }
 
     }
-    if (!strH.empty())
-    {
+   /* if (!strH.empty())
+    {*/
         cout << commonPart(strH);
         return commonPart(strH);
-    }
-    else
+    /*}*/
+   /* else {
+        cout << "bop";
         return str = "";
-
+    }*/
 
 }
 bool Solution::Proverka(string& word, string g)
