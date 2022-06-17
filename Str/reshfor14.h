@@ -5,34 +5,32 @@
 #include <algorithm>
 using namespace std;
 class Solution {
-    
+
 public:
     string longestCommonPrefix(vector<string>& strs) {
         sort(strs.begin(), strs.end());
-        int  cnt = 0,a = 0;
+        int  cnt = 0, a = 0;
         string str = "";
-       
-           
-            for (int h =1; ((h < strs.size())); h++)
+     
+        for (a = 0; a < strs[0].size(); a++) {
+
+            for (int h = 0; ((h < strs.size())); h++)
             {
-                if((strs[0][a] != strs[h][a++])&& (cnt < str.size()))
-                {
-                    return "";
-                }
-                else if ((strs[0][a] != strs[h][a]) && (cnt >= strs.size()))
+                if ((strs[0][a] != strs[h][a]))
                 {
                     return str;
                 }
-                else
-                {
-                    cnt++;
-                   str += strs[h][a];
-                    
-                }
+                cnt = 1;
+            }
+            if (cnt == 1)
+            {
+                str += strs[0][a];
+            }
+
         }
-           // cout << a << '\t';
-         
-        return "";
+        // cout << a << '\t';
+
+        return str;
     }
 
 };
