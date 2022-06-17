@@ -55,7 +55,7 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
                 }
                 h = 0;
                 cnt4++;
-                continue;
+                
             }
             else
             {
@@ -102,7 +102,7 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
         for (int h = 0; (h < strs[k].size()) && (h < strs[0].size()); h++)
         {
          
-               print(strH);
+              // print(strH);
                 cnt = 0;
                 cnt2 = 0;
                 if (strH.size() > 0)
