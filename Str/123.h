@@ -53,7 +53,7 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
                     for (auto i = 0; i != strH.size(); i++) {
                         b = strH[i].begin();
                         
-                        for (/*int  j = 0;j<strH[i].size(); j++*/auto& c : (*i))
+                        for (/*int  j = 0;j<strH[i].size(); j++*/auto& c : strH[i])
                         {
 
                             if (!Proverka(strs[k], c))
