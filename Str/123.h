@@ -36,16 +36,73 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
     // strH.push_back(strH[0]);
     
     list<string>::iterator b;
+    int cnt = 0, cnt2 = 0, cnt3 = 0, cnt4 = 0;
+    for (int h = 0; (h < strs[1].size()) && ((h+cnt4) < strs[0].size());)
+    {
+        
 
-    int cnt = 0, cnt2 = 0;
-    for (auto k = 1; k < strs.size(); k++)
+            if (!Proverka(strs[1], str + strs[0][h+cnt4]))
+            {
+                if (cnt > 0)
+                {
+                    // print(str);
+                    // strH[cnt2++].push_back(str);
+                    cnt2++;
+                    str = "";
+                    cnt = 0;
+                    strH.push_back(ah);
+
+                }
+                h = 0;
+                cnt4++;
+                continue;
+            }
+            else
+            {
+
+                if (cnt > 0)
+                {
+                    //  print(str);
+                    str += strs[0][h+cnt4];
+                    strH[cnt2].push_back(str);
+                    cnt++;
+                    
+
+                }
+                else
+                {
+                    // print(str);
+                    strH.push_back(ah);
+                    str = strs[0][h+cnt4];
+                    strH[cnt2].push_back(str);
+                    cnt++;
+                    //cnt3 = h;
+                }
+                h++;
+            }
+            //cnt4++;
+
+
+
+           /* if ((cnt4 == h + 1) && (h + 1 != strs[1].size()) && (h + 1 == strs[0].size()))
+            {
+                h = 0;
+                cnt4++;
+                h = cnt3;
+                cnt4 = 0;
+
+            }*/
+        }
+    
+
+    
+    for (auto k = 2; k < strs.size(); k++)
     {
 
         for (int h = 0; (h < strs[k].size()) && (h < strs[0].size()); h++)
         {
-            if ((k > 1))
-            {
-               // print(strH);
+         
+               print(strH);
                 cnt = 0;
                 cnt2 = 0;
                 if (strH.size() > 0)
@@ -101,46 +158,8 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
                 }
 
 
-            }
-            else {
-
-
-                if (!Proverka(strs[k], str + strs[0][h]))
-                {
-                    if (cnt > 0)
-                    {
-                       // print(str);
-                        strH[cnt2++].push_back(str);
-                        str = "";
-                        cnt = 0;
-                        strH.push_back(ah);
-                    }
-
-
-                }
-                else
-                {
-                    
-                    if (cnt > 0)
-                    {
-                      //  print(str);
-                        str += strs[0][h];
-                        strH[cnt2].push_back(str);
-                        cnt++;
-                    }
-                    else
-                    { 
-                       // print(str);
-                        strH.push_back(ah);
-                        str = strs[0][h];
-                        strH[cnt2].push_back(str);
-                        cnt++;
-                    }
-
-                }
-
-            }
-        }
+            
+       }
 
     }
     if (!strH.empty())
@@ -166,7 +185,7 @@ bool Solution::Proverka(string& word, string g)
             }
             else {
                 ++sh;
-                if (g.size() == (k+1))
+                if (g.size() == k+1)
                 {
                     return true;
                 }
