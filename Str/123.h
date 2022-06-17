@@ -47,10 +47,12 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
             {
                // print(strH);
                 cnt = 0;
+                cnt2 = 0;
                 if (strH.size() > 0)
                 {
-                    for (auto i = strH.begin(); i != strH.end(); i++) {
-                        b = (*i).begin();
+                    for (auto i = 0; i != strH.size(); i++) {
+                        b = strH[i].begin();
+                        
                         for (/*int  j = 0;j<strH[i].size(); j++*/auto& c : (*i))
                         {
 
@@ -60,7 +62,8 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
                                 {
                                    // print(c);
                                     //print(strH);
-                                strH.erase(i);
+                                strH.erase(strH.begin()+i);
+                                
                               //  print(strH);
                                 if (strH.empty())
                                 {
@@ -73,12 +76,16 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
                                 {
                                   //  print(strH);
                                    // print(c);
-                                    (*i).erase(b,  (* i).end());
+                                    strH[i].erase(b, strH[i].end());
                                   //  print(strH);
                                     break;
                                 }
                                 
 
+                            }
+                            if ((cnt2 == 0) && (strH.size() == 1))
+                            {
+                                
                             }
                             cnt++;
                             b++;
