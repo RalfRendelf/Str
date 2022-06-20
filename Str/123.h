@@ -98,8 +98,7 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
 for (auto k = 2; k < strs.size(); k++)
         {
 
-            for (int h = 0; (h < strs[k].size()) && (h < strs[0].size()); h++)
-            {
+           
 
                 print(strH);
 
@@ -159,7 +158,7 @@ for (auto k = 2; k < strs.size(); k++)
 
 
 
-            }
+            
 
         }
         if (!strH.empty())
@@ -210,7 +209,7 @@ string Solution::commonPart(vector<list<string>>& a)
     {
         for (auto v = c.begin(); v != c.end(); v++)
         {
-            if (str < *v)
+            if (str.size()<a.size())
             {
                 str = *v;
             }
