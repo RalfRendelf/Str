@@ -14,9 +14,11 @@ void print(string s)
 void print(vector<list<string>> str)
 {
     for (auto a : str) {
-        cout << '\t';
-        for (auto b : a)
-            cout << b;
+        cout << '\n';
+        for (auto b : a) {
+            cout << b << ' ';
+            system("pause");
+        }
     }
 
 }
@@ -24,7 +26,7 @@ void print(vector<list<string>> str)
 class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs);
-private:
+protected:
     bool Proverka(string& word, string g);
     string commonPart(vector<list<string>>& a);
     
@@ -37,16 +39,16 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
     
     list<string>::iterator b;
     int cnt = 0, cnt2 = 0, cnt3 = 0, cnt4 = 0;
-    for (int h = 0; (h < strs[1].size()) && ((h+cnt4) < strs[0].size());)
-    {
-        
+    if (strs.size() > 1) {
+        for (int h = 0; (h < strs[1].size()) && ((h + cnt4) < strs[0].size());)
+        {
+            // print(strH);
 
-            if (!Proverka(strs[1], str + strs[0][h+cnt4]))
+            if (!Proverka(strs[1], str + strs[0][h + cnt4]))
             {
                 if (cnt > 0)
                 {
-                    // print(str);
-                    // strH[cnt2++].push_back(str);
+
                     cnt2++;
                     str = "";
                     cnt = 0;
@@ -55,61 +57,59 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
                 }
                 h = 0;
                 cnt4++;
-                
+
             }
             else
             {
 
                 if (cnt > 0)
                 {
-                    //  print(str);
-                    str += strs[0][h+cnt4];
+
+                    str += strs[0][h + cnt4];
                     strH[cnt2].push_back(str);
                     cnt++;
-                    
+
 
                 }
                 else
                 {
-                    // print(str);
+
                     strH.push_back(ah);
-                    str = strs[0][h+cnt4];
+                    str = strs[0][h + cnt4];
                     strH[cnt2].push_back(str);
                     cnt++;
-                    //cnt3 = h;
+
                 }
                 h++;
             }
-            //cnt4++;
 
 
 
-           /* if ((cnt4 == h + 1) && (h + 1 != strs[1].size()) && (h + 1 == strs[0].size()))
-            {
-                h = 0;
-                cnt4++;
-                h = cnt3;
-                cnt4 = 0;
 
-            }*/
+            /* if ((cnt4 == h + 1) && (h + 1 != strs[1].size()) && (h + 1 == strs[0].size()))
+             {
+                 h = 0;
+                 cnt4++;
+                 h = cnt3;
+                 cnt4 = 0;
+
+             }*/
         }
-    
-
-    
-    for (auto k = 2; k < strs.size(); k++)
-    {
-
-        for (int h = 0; (h < strs[k].size()) && (h < strs[0].size()); h++)
+for (auto k = 2; k < strs.size(); k++)
         {
-         
-              // print(strH);
+
+            for (int h = 0; (h < strs[k].size()) && (h < strs[0].size()); h++)
+            {
+
+                print(strH);
+
                 cnt = 0;
                 cnt2 = 0;
                 if (strH.size() > 0)
                 {
                     for (auto i = 0; i != strH.size(); i++) {
                         b = strH[i].begin();
-                        
+
                         for (/*int  j = 0;j<strH[i].size(); j++*/auto& c : strH[i])
                         {
 
@@ -117,32 +117,32 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
                             {
                                 if (cnt == 0)
                                 {
-                                   // print(c);
-                                    //print(strH);
-                                strH.erase(strH.begin()+i);
-                                
-                              //  print(strH);
-                                if (strH.empty())
-                                {
-                                    str = "";
+                                    // print(c);
+                                     //print(strH);
+                                    strH.erase(strH.begin() + i);
+
+                                    //  print(strH);
+                                    if (strH.empty())
+                                    {
+                                        str = "";
                                         return str;
-                                }
+                                    }
                                     break;
                                 }
                                 else
                                 {
-                                  //  print(strH);
-                                   // print(c);
+                                    //  print(strH);
+                                     // print(c);
                                     strH[i].erase(b, strH[i].end());
-                                  //  print(strH);
+                                    //  print(strH);
                                     break;
                                 }
-                                
+
 
                             }
                             if ((cnt2 == 0) && (strH.size() == 1))
                             {
-                                
+
                             }
                             cnt++;
                             b++;
@@ -158,18 +158,27 @@ string Solution::longestCommonPrefix(vector<string>& strs) {
                 }
 
 
-            
-       }
 
+            }
+
+        }
+        if (!strH.empty())
+        {
+
+            return commonPart(strH);
+        }
+        else
+            return str = "";
     }
-    if (!strH.empty())
+    else if (strs.size()==1)
     {
-        cout << commonPart(strH);
-        return commonPart(strH);
-    }
+    return strs[0];
+ }
     else
-        return str = "";
-
+    {
+    cerr << "Пустой массив данных";
+    return "";
+ }
 
 }
 bool Solution::Proverka(string& word, string g)

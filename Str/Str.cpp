@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include  "reshfor14.h"
+#include  "123.h"
 
 int main()
 {
@@ -10,6 +10,7 @@ int main()
     vector<string> g { "flower","flow","flight"/*"Rezistot","Rector","Sorector"*/};
     cout << b.longestCommonPrefix(g);
     //std::cout << "Hello World!\n";
+    
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
