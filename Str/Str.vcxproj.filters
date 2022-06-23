@@ -23,7 +23,7 @@
     <ClInclude Include="123.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="truesol.h">
+    <ClInclude Include="reshfor14.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

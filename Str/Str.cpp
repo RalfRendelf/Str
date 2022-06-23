@@ -2,13 +2,13 @@
 //
 
 #include <iostream>
-#include  "123.h"
+#include  "reshfor14.h"
 
 int main()
 {
     Solution b;
-    vector<string> g{ /*"flower","flow","flight"*//*"dog","racecar","car"*/"adddd","dddadd","ddddd"};
-    b.longestCommonPrefix(g);
+    vector<string> g { "flower","flow","flight"/*"Rezistot","Rector","Sorector"*/};
+    cout << b.longestCommonPrefix(g);
     //std::cout << "Hello World!\n";
 }
 
