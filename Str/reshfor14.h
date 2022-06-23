@@ -4,7 +4,7 @@
 #include <list>
 #include <algorithm>
 using namespace std;
-class Solution {
+class Solution2 {
 
 public:
     string longestCommonPrefix(vector<string>& strs) {
@@ -34,3 +34,14 @@ public:
     }
 
 };
+void print(vector<vector<int>>& courses)
+{
+    for (auto a : courses) {
+        cout << '\n';
+        for (auto b : a)
+            cout << b << '\t';
+    }
+
+
+    cout << '\n' << "===============================================================================" << '\n';
+}

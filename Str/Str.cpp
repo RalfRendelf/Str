@@ -4,6 +4,7 @@
 #include <iostream>
 #include  "Header.h"
 #include <algorithm>
+#include "reshfor14.h"
 bool Re(vector<int>& a, vector <int>& b)
 {
     return a[1] < b[2];
@@ -15,19 +16,16 @@ int main()
     //vector<string> g { "flower","flow","flight"/*"Rezistot","Rector","Sorector"*/};
     //cout << b.longestCommonPrefix(g);
     //std::cout << "Hello World!\n";
-    vector<vector<int>> g = { {7, 17},{3, 12},{9, 10},{5, 20},{10,19},{4,18} };
-    sort(g.begin(), g.end(), [](vector<int>a, vector<int> b)
+    int i = 0;
+    vector<vector<int>> courses = { {10,12},{6,15},{1,12},{3,20},{10,19} };
+   
+    sort(courses.begin(), courses.end(), [](vector<int>a, vector<int> b)
         {
-            return a[1] < b[1];
+            return  a[0]  < b[0];
         });
-     for (auto a : g) {
-        cout << '\n';
-        for (auto b : a)
-            cout << b << '\t';
-    }
-     //system("pause");
+    print(courses);
     Solution b;
-    cout << b.scheduleCourse(g);
+    cout << b.scheduleCourse(courses);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
@@ -40,3 +38,5 @@ int main()
 //   4. В окне "Список ошибок" можно просматривать ошибки.
 //   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
 //   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
+//[[2, 5], [2, 19], [1, 8], [1, 3]]
+///*{7, 17},{3, 12},{9, 10},{5, 20},{10,19},{4,18}*//*{1,2},{2,3}*/ {2, 5}, { 2,19 }, { 1,8 }, { 1,3 }
