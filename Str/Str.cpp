@@ -2,15 +2,32 @@
 //
 
 #include <iostream>
-#include  "123.h"
+#include  "Header.h"
+#include <algorithm>
+bool Re(vector<int>& a, vector <int>& b)
+{
+    return a[1] < b[2];
+}
 
 int main()
 {
-    Solution b;
-    vector<string> g { "flower","flow","flight"/*"Rezistot","Rector","Sorector"*/};
-    cout << b.longestCommonPrefix(g);
+    //Solution b;
+    //vector<string> g { "flower","flow","flight"/*"Rezistot","Rector","Sorector"*/};
+    //cout << b.longestCommonPrefix(g);
     //std::cout << "Hello World!\n";
-    
+    vector<vector<int>> g = { {7, 17},{3, 12},{9, 10},{5, 20},{10,19},{4,18} };
+    sort(g.begin(), g.end(), [](vector<int>a, vector<int> b)
+        {
+            return a[1] < b[1];
+        });
+     for (auto a : g) {
+        cout << '\n';
+        for (auto b : a)
+            cout << b << '\t';
+    }
+     //system("pause");
+    Solution b;
+    cout << b.scheduleCourse(g);
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
