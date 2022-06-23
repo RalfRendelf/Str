@@ -152,8 +152,8 @@ for (auto k = 2; k < strs.size(); k++)
                 }
                 else
                 {
-                    str = "";
-                    return str;
+                    
+                    return "";
                 }
 
 
